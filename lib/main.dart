@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:math';  
-//import 'package:audioplayers/audioplayers.dart'; // Importing the audio.dart file
+import 'dart:math';
+import 'package:audioplayers/audioplayers.dart'; // Importing the audio.dart file
 
 void main() {
   runApp(
@@ -24,7 +24,7 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
-  // Creating an object of AudioCache class
+  late AudioCache audioCatche; // Creating an object of AudioCache class
   int leftDiceNumber = 1;
   int rightDiceNumber = 1;
 
@@ -33,6 +33,7 @@ class _DicePageState extends State<DicePage> {
       // Playing the audio file
       leftDiceNumber = 1 + Random().nextInt(6);
       rightDiceNumber = 1 + Random().nextInt(6);
+      audioCatche.load('audio/dice.wav');
     });
   }
 
