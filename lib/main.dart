@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';  
+import 'package:audioplayers/audioplayers.dart'; // Importing the audio.dart file
 
 void main() {
   runApp(
@@ -23,13 +24,15 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
+  
   int leftDiceNumber = 1;
   int rightDiceNumber = 1;
 
   void rollDice() {
     setState(() {
-      leftDiceNumber = 1 + (DateTime.now().millisecond % 6);
-      rightDiceNumber = 1 + (DateTime.now().millisecond % 6);
+
+      leftDiceNumber = 1 + Random().nextInt(6);
+      rightDiceNumber = 1 + Random().nextInt(6);
     });
   }
 
