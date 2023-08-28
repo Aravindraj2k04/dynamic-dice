@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:math';  
 
 void main() {
-  return runApp(
+  runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -16,50 +17,37 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
-  const DicePage({super.key});
-
+class DicePage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return dicestate();
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
+
+  void rollDice() {
+    setState(() {
+      leftDiceNumber = 1 + (DateTime.now().millisecond % 6);
+      rightDiceNumber = 1 + (DateTime.now().millisecond % 6);
+    });
   }
-}
-class dicestate extends StatefulWidget {
-  const dicestate({super.key});
 
-  @override
-  State<dicestate> createState() => _dicestateState();
-}
-
-class _dicestateState extends State<dicestate> {
   @override
   Widget build(BuildContext context) {
-    var leftDi = 1;
     return Center(
-      child: Column(
+      child: Row(
         children: [
           Expanded(
             child: TextButton(
-              onPressed: () {
-              
-                setState(() {
-                  leftDi ++;
-                }
-                );
-                print('Left button got pressed.');
-              },
-              child: Image.asset('images/dice$leftDi.png'),
+              onPressed: rollDice,
+              child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
             child: TextButton(
-              onPressed: () {
-                setState(() {
-                  leftDi ++;
-                });
-                print('Right button got pressed.');
-              },
-              child: Image.asset('images/dice$leftDi.png'),
+              onPressed: rollDice,
+              child: Image.asset('images/dice$rightDiceNumber.png'),
             ),
           ),
         ],
