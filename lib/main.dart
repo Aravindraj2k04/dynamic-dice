@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
-//import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(
@@ -25,28 +23,14 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
-  late AudioCache audioCache; // For preloading
-  late AudioPlayer audioPlayer; // For playing
-
   int leftDiceNumber = 1;
   int rightDiceNumber = 1;
 
-  @override
-  void initState() {
-    super.initState();
-    audioCache = AudioCache();
-    audioPlayer = AudioPlayer();
-    audioCache.load('audio/dice.wav'); // Preload the audio file
-  }
-
-  void rollDice() async {
+  void rollDice() {
     setState(() {
-      leftDiceNumber = 1 + Random().nextInt(6);
-      rightDiceNumber = 1 + Random().nextInt(6);
+      leftDiceNumber = 1 + (Random().nextInt(6));
+      rightDiceNumber = 1 + (Random().nextInt(6));
     });
-
-    // Play the preloaded audio
-    await audioPlayer.play('audio/dice.wav' as Source);
   }
 
   @override
