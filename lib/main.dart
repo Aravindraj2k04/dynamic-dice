@@ -11,7 +11,6 @@ void main() {
         appBar: AppBar(
           
           title: Text('Dicee'),
-          
           backgroundColor: Color.fromARGB(255, 48, 106, 240),
         ),
         body: DicePage(),
