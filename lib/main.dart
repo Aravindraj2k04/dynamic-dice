@@ -5,10 +5,8 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 48, 106, 240),
-
         appBar: AppBar(
           
           title: Text('Dicee'),
