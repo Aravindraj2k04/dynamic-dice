@@ -8,11 +8,12 @@ void main() {
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 48, 106, 240),
         appBar: AppBar(
-          
+
           title: Text('Dicee'),
           backgroundColor: Color.fromARGB(255, 48, 106, 240),
         ),
         body: DicePage(),
+        
       ),
     ),
   );
